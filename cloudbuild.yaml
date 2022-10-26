@@ -11,7 +11,7 @@ steps:
   'crudapp-server', 
   '--image', 
   'gcr.io/$PROJECT_ID/crudapp-server', 
-  '--update-secrets=MONGO_URI=MONGO_URI:latest,MONGO_PASSWORD=MONGO_PASSWORD:latest,JWT_SECRET=JWT_SECRET:latest', 
+  '--update-secrets=MONGO_URI=MONGO_URI:latest,MONGO_PASSWORD=MONGO_PASSWORD:latest,JWT_SECRET=JWT_SECRET:latest,JWT_EXPIRES_IN=JWT_EXPIRES_IN:latest,NODE_ENV=NODE_ENV:latest', 
   '--region', 
   'asia-southeast1',
   '--platform', 
