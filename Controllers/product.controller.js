@@ -9,7 +9,6 @@ exports.getAllProduct = async (req, res, next) => {
             _id: product._id,
             title: product.title,
             price: product.price,
-            image: product.image,
             updateAt: product.updatedAt
         }));
 
@@ -28,13 +27,12 @@ exports.getAllProduct = async (req, res, next) => {
 
 exports.addNewProduct = async (req, res, next) => {
     try {
-        const { title, description, price, image } = req.body;
+        const { title, description, price } = req.body;
     
         const product = await Product.create({
             title,
             description,
             price,
-            image,
             user_id: req.user._id
         });
     
