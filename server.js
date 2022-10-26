@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
-const dotenv = require('dotenv');
 
-dotenv.config({ path: './.env' });
 const app = require('./app');
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 const DB = process.env.MONGO_URI.replace(
     '<PASSWORD>',
