@@ -5,19 +5,25 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/crudapp-server']
   # proses CD: Deploy image ke layanan cloud run
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 
-  'deploy', 
-  'crudapp-server', 
-  '--image', 
-  'gcr.io/$PROJECT_ID/crudapp-server', 
-  '--update-secrets=MONGO_URI=MONGO_URI:latest', 
-  '--update-secrets=MONGO_PASSWORD=MONGO_PASSWORD:latest', 
-  '--update-secrets=JWT_SECRET=JWT_SECRET:latest', 
-  '--update-secrets=JWT_EXPIRES_IN=JWT_EXPIRES_IN:latest', 
-  '--update-secrets=NODE_ENV=NODE_ENV:latest ',
-  '--region', 
-  'asia-southeast1',
-  '--platform', 
-  'managed',
-  '--allow-unauthenticated']
+- name: gcr.io/cloud-builders/gcloud
+  args:
+    - run
+    - deploy
+    - crudapp-server
+    - '--image'
+    - gcr.io/$PROJECT_ID/crudapp-server
+    - >-
+      --update-secrets=MONGO_URI=MONGO_URI:latest
+    - >-
+      --update-secrets=MONGO_PASSWORD=MONGO_PASSWORD:latest
+    - >-
+      --update-secrets=JWT_SECRET=JWT_SECRET:latest
+    - >-
+      --update-secrets=JWT_EXPIRES_IN=JWT_EXPIRES_IN:latest
+    - >-
+      --update-secrets=NODE_ENV=NODE_ENV:latest
+    - '--region'
+    - asia-southeast1
+    - '--platform'
+    - managed
+    - '--allow-unauthenticated'
